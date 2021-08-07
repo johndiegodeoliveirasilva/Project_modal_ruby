@@ -1,14 +1,9 @@
 <%=link_to 'New User', new_user_path %>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <%= render partial: "shared/card", collection: @users %>
+    </div>
+  </div>
+</div>
 
-
-  <br>  
-<% @users.each do |user| %>
-  <%= link_to 'Show', user_path(user) %>
-  <%= link_to 'Edit', edit_user_path(user) %>
-  <%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?'} %>
-  <strong>Name</strong> <%= user.name %><br>
-  <strong>Email</strong> <%= user.email %>
-  <strong>Age</strong> <%= user.age %>
-  <strong>Bio</strong> <%= user.bio %>
-  <BR>
-<% end %>
