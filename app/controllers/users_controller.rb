@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_users, only: [:edit, :show, :update, :destroy]
 
   def index
-    @user = User.new
+    @users = User.all
   end
 
   def new
@@ -25,6 +25,11 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to users_path, notice: 'Content successfully updated!'
   end
 
   def show; end
