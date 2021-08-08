@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row align-items-start">
-    <div class="col">
+    <div class="col-6">
       <%= @user.name %><br>
       <%= @user.age %><br>
+    </div>
+    <div class="col-6">
       <%= @user.email %><br>
       <%= @user.bio %><br>
     </div>
   </div>
-
+<br>
 <ul>
   <li><%= link_to "Edit", edit_user_path(@user) %></li>
   <li><%= link_to "Destroy", user_path(@user),
