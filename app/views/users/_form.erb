@@ -23,8 +23,16 @@
     <%= form.text_area :bio, class: 'form-control'%>
   </div>
   <br>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <% if params[:action].eql?("edit") %>
+      <%= form.submit 'Update', class: 'btn btn-primary', data: { disable_with: "Submitting..."} %>
+    <% else %>
+      <%= form.submit 'Save', class: 'btn btn-primary', data: { disable_with: "Submitting..."} %>
+    <% end %>
+  </div>
   <div class="actions">
-    <%= form.submit 'Save', class: 'btn btn-primary' %>
+    
   </div>
 <% end %>
 
