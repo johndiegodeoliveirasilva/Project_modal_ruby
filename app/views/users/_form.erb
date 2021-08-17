@@ -1,8 +1,18 @@
 <% if @user.errors.any? %>
   Error: <%= @user.errors.full_messages.join(', ' ) %>
 <% end %>
-<br>
+<% if @user.avatar.present? %>
+    <div class="container-fluid position-relative" style="text-align: center;">
+      <%= image_tag (@user.avatar.variant(resize_to_limit: [400, 200])) %>
+    </div>
+  <% end %>
+  <br>
 <%= form_with(model: @user, local: true) do |form| %>
+  <div class="mb-3">
+    <%= form.label :avatar, class: 'form-label' %>
+    <%= form.file_field :avatar, class: 'form-control' %>
+  </div>
+  
   <div class="mb-3">
     <%= form.label :name, class: 'form-label' %>
     <%= form.text_field :name, class: 'form-control' %>
